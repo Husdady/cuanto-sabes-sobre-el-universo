@@ -7,7 +7,7 @@ html {
   box-sizing: inherit;
 }
 
-body {
+body{
   font-family: system-ui, sans-serif;
   padding: 8% 0;
 }
@@ -32,7 +32,7 @@ main {
   display: table;
 }
 main > div:first-child {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 #icon {
@@ -60,7 +60,6 @@ main > div:first-child {
 
 .questionnaire {
   background: rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
   padding: 1.5% 3% 5%;
   display: table;
   width: 100%;
