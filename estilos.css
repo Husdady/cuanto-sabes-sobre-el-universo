@@ -19,6 +19,7 @@ body{
   bottom: 0;
   right: 0;
   overflow: hidden;
+  z-index: -100;
 }
 
 video {
