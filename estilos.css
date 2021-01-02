@@ -22,6 +22,10 @@ body{
   overflow: hidden;
 }
 
+video {
+  object-fit: fill;
+}
+
 main {
   width: 90%;
   max-width: 1000px;
