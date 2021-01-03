@@ -23,7 +23,6 @@ window.onload = ()=>{
   
   loading.id = "loading";
   countReplys.id = "count-reply";
-  $("footer").load("https://husdady.github.io/derechos-de-autor/"); 
     
     var i, puntaje, selectAnAnswer, status, j = true, point = 1;
   
@@ -593,7 +592,6 @@ window.onload = ()=>{
   divPrompt.id = "prompt";
   contentPrompt.id = "content-prompt";
   
-  setTimeout(()=>{
   document.body.appendChild(divPrompt);
   divPrompt.appendChild(contentPrompt);
   contentPrompt.appendChild(anotherDiv);
@@ -609,7 +607,8 @@ window.onload = ()=>{
     if (username != ""){
     nombreDeUsuario = username;
     document.body.removeAttribute("style");
-    divPrompt.remove() 
+    divPrompt.remove();
+    playMusic.click();
     } else {
     Swal.fire({
       html: "<span style='color: black'>Por favor proporcione un nombre de usuario...</span>",
@@ -622,11 +621,11 @@ window.onload = ()=>{
   }
     } else if (e.target.id === "not-add-username"){
       nombreDeUsuario = "Usted no ha especificado un nombre de usuario";
-      divPrompt.remove()
+      divPrompt.remove();
+      playMusic.click();
       document.body.removeAttribute("style");
     }
-  })
-  }, 3000);
+  });
   
   setTimeout(()=>{
   Swal.fire({
@@ -675,13 +674,6 @@ window.onload = ()=>{
    }
   
   });
-  
-  const mq = window.matchMedia("(min-width: 769px)");
-  if (mq.matches){
-  playMusic.click();
-  } else {
-  return;
-  }
   
   function addElementsInArray(array, valor, posicion) {
   let inicio = array.slice(0, posicion), medio = valor, fin = array.slice(posicion), resultado = inicio.concat(medio).concat(fin); 
