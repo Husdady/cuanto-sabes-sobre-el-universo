@@ -6,7 +6,7 @@ window.onload = ()=>{
     h1 = information[0].getElementsByTagName("h1"),
     div = information[0].getElementsByTagName("div"),
     nombreDeUsuario,
-    array = [],
+    aleatoryQuestions = [],
     buttonNext = document.createElement("button"),
     loading = document.createElement("span"),
     playMusic = $("main > div:first-child"),
@@ -374,13 +374,13 @@ window.onload = ()=>{
     information[0].prepend(countReplys);
   }
     
-    title.textContent = `${this.preguntas[array[i]]}`;
+    title.textContent = `${this.preguntas[aleatoryQuestions[i]]}`;
     
     answers.innerHTML = `
-    <div class="reply r${i}">${this.respuestas[array[i]][0]}</div>
-    <div class="reply r${i}">${this.respuestas[array[i]][1]}</div>
-    <div class="reply r${i}">${this.respuestas[array[i]][2]}</div>
-    <div class="reply r${i}">${this.respuestas[array[i]][3]}</div>
+    <div class="reply r${i}">${this.respuestas[aleatoryQuestions[i]][0]}</div>
+    <div class="reply r${i}">${this.respuestas[aleatoryQuestions[i]][1]}</div>
+    <div class="reply r${i}">${this.respuestas[aleatoryQuestions[i]][2]}</div>
+    <div class="reply r${i}">${this.respuestas[aleatoryQuestions[i]][3]}</div>
     `;
   
     let replysQuestionnary = document.querySelectorAll(`.r${i}`);
@@ -392,7 +392,7 @@ window.onload = ()=>{
       selectAnAnswer = true;
   
     if (status === true){
-      if (targetReplys.textContent.includes(this.respuestasCorrectas[array[i]])){
+      if (targetReplys.textContent.includes(this.respuestasCorrectas[aleatoryQuestions[i]])){
         targetReplys.classList.add("check");
         puntaje += point;
         soundCheck.play();
@@ -401,7 +401,7 @@ window.onload = ()=>{
         soundWrongError.play();
         puntaje += 0;
         for (let replyCorrect of replysQuestionnary){
-          if (replyCorrect.textContent.includes(this.respuestasCorrectas[array[i]])){
+          if (replyCorrect.textContent.includes(this.respuestasCorrectas[aleatoryQuestions[i]])){
           replyCorrect.classList.add("check");
           }
         }
@@ -520,9 +520,7 @@ window.onload = ()=>{
         j = true;
         puntaje = 0;
         status = true;
-        for(let x=0; x < testUniverse.preguntas.length; x++){
-  array = addElementsInArray(array, x, Math.random()*testUniverse.preguntas.length);
-  }  
+        aleatoryNumber();
    }
   
         else if (target.className === "next"){
@@ -565,7 +563,7 @@ window.onload = ()=>{
     else if (target.id === "yes"){
       fadeOut(information[0]);
       fadeIn(information[0]);
-      array = [];
+      aleatoryQuestions = [];
       return testUniverse.againTest();
     }
     else if (target.id === "no"){
@@ -675,9 +673,10 @@ window.onload = ()=>{
   
   });
   
-  function addElementsInArray(array, valor, posicion) {
-  let inicio = array.slice(0, posicion), medio = valor, fin = array.slice(posicion), resultado = inicio.concat(medio).concat(fin); 
-  return resultado;
+  function aleatoryNumber() {
+  for (let z = 0; z < testUniverse.preguntas.length; z++) {
+    aleatoryQuestions[z] = z;
   }
-  
+  aleatoryQuestions.sort(()=> Math.random() > 0.5 ? 1 : -1);
+  }
    }
