@@ -23,7 +23,7 @@ window.onload = ()=>{
   
   loading.id = "loading";
   countReplys.id = "count-reply";
-  $("footer").load("src/derechos-de-autor/index.html"); 
+  $("footer").load("https://husdady.github.io/derechos-de-autor/"); 
     
     var i, puntaje, selectAnAnswer, status, j = true, point = 1;
   
