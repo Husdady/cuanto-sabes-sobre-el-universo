@@ -520,7 +520,7 @@ window.onload = ()=>{
         j = true;
         puntaje = 0;
         status = true;
-        aleatoryNumber();
+        aleatoryNumber(aleatoryQuestions);
    }
   
         else if (target.className === "next"){
@@ -673,10 +673,10 @@ window.onload = ()=>{
   
   });
   
-  function aleatoryNumber() {
+  function aleatoryNumber(nameOfArray) {
   for (let z = 0; z < testUniverse.preguntas.length; z++) {
-    aleatoryQuestions[z] = z;
+    nameOfArray[z] = z;
   }
-  aleatoryQuestions.sort(()=> Math.random() > 0.5 ? 1 : -1);
+  nameOfArray.sort(()=> Math.random() > 0.5 ? 1 : -1);
   }
    }
